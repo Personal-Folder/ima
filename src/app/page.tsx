@@ -74,7 +74,6 @@ export default function Home() {
         rightLogoUrl="knowUs.svg"
       />
       <NewsGrid newsData={newsData} />
-      <HomeGalleryGrid images={images} remainingImages={200} />
       <SecMission
         leftImg="home_last.png"
         leftLogo="heart.svg"
@@ -84,6 +83,7 @@ export default function Home() {
         rightButtonText="Support Our Mission"
         rightLogoUrl="knowUs.svg"
       />
+      <HomeGalleryGrid images={images} remainingImages={200} />
     </div>
   );
 }

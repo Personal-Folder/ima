@@ -21,7 +21,7 @@ const NewsGrid = ({ newsData, showButton = true }: NewsGridProps) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-slate-50 to-slate-100  px-4 ">
       {/* News grid section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl mt-6">
         {newsData
