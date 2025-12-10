@@ -1,11 +1,5 @@
 import Header from "@/components/home/Header";
-import {
-  ambulance,
-  headerPhoto,
-  logo,
-  missionImg,
-  playImg,
-} from "../../utils/public-imports";
+
 import AlertMessages from "@/components/home/AlertMessages";
 import DiscoverGrid from "@/components/discover/DiscoverGrid";
 import WhoWeAre from "@/components/about-us/WhoWeAre";
@@ -57,23 +51,23 @@ export default function Home() {
   return (
     <div>
       <Header
-        img={headerPhoto}
+        img={"/backImage.svg"}
         title="Islamic Medical Association"
         description="Tel: 07 735 734"
-        logo={logo}
+        logo="/logo.svg"
       />
       <AlertMessages messages={messages} />
       <DiscoverGrid itemsToShow={3} />
       <WhoWeAre
-        img={ambulance}
+        img="/amb.svg"
         title="Who We Are"
         text="Flyesim is a cutting-edge technology company dedicated to enhancing your travel experience through our state-of-the-art eSIM application. Our team consists of tech enthusiasts, travel aficionados, and customer service experts, all committed to providing you with the best connectivity solutions no matter where your adventures take you."
         button={true}
       />
       <Mission
         enableButton={true}
-        leftImg={missionImg}
-        leftLogo={playImg}
+        leftImg="/mission.svg"
+        leftLogo="/play_button.svg"
         rightTitle="Our Mission"
         rightText="Flyesim is a cutting-edge technology company dedicated to enhancing your travel experience through our state-of-the-art eSIM application. Our team consists of tech enthusiasts, travel aficionados, and customer service experts, all committed to providing you with the best connectivity solutions no matter where your adventures take you."
         rightButtonText="Get to Know Us"

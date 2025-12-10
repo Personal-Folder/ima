@@ -4,7 +4,6 @@ import { useState } from "react";
 import { discoverData } from "../../../data/mockData";
 import DiscoverBox from "./DiscoverBox";
 import Button from "../common/Button";
-import { discover } from "../../../utils/public-imports";
 
 const DiscoverGrid = ({
   showButton = true,
@@ -41,7 +40,7 @@ const DiscoverGrid = ({
           <Button
             onClick={handleShowMore}
             text={showMore ? "Discover Less" : "Discover More"}
-            logo={discover}
+            logo="/discover.svg"
           />
         </div>
       )}

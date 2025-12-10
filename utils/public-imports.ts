@@ -1,5 +1,4 @@
 export const logo = "/logo.svg";
-export const headerPhoto = "/backImage.svg";
 export const heart = "/heart.svg";
 export const docLog = "/doclog.svg";
 

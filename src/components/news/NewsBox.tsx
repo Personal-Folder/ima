@@ -1,7 +1,6 @@
 "use client";
 
 import NewsBoxProps from "../../../types/NewsTypes";
-import { logo } from "../../../utils/public-imports";
 import Button from "../common/Button";
 import SecondaryButton from "../common/SecondaryButton";
 
@@ -41,7 +40,7 @@ const NewsBox = ({
           </div>
 
           <div className="absolute top-0 right-6 bg-white p-2 rounded-full rounded-t-none shadow-md">
-            <img src={logo} alt="Logo" className="w-8 h-8" />
+            <img src="/logo.svg" alt="Logo" className="w-8 h-8" />
           </div>
 
           <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 rounded-full bg-white text-red-950 px-12 py-2 text-sm font-semibold text-center whitespace-nowrap overflow-hidden text-ellipsis">

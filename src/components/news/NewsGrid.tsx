@@ -2,7 +2,6 @@
 
 import NewsBox from "./NewsBox";
 import Button from "../common/Button";
-import { discover } from "../../../utils/public-imports";
 import { useRouter } from "next/navigation";
 
 interface NewsGridProps {
@@ -48,7 +47,7 @@ const NewsGrid = ({ newsData, showButton = true }: NewsGridProps) => {
           <Button
             onClick={handleShowMore}
             text={"Discover More"}
-            logo={discover}
+            logo="/discover.svg"
           />
         </div>
       )}

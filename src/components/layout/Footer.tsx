@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { logo } from "../../../utils/public-imports";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
@@ -66,7 +65,7 @@ const Footer = () => {
         {/* Center Column - Logo */}
         <div className="flex justify-center w-full lg:w-1/3">
           <Image
-            src={logo}
+            src="/logo.svg"
             alt="Logo"
             width={100}
             height={100}

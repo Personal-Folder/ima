@@ -5,7 +5,6 @@ import Link from "next/link"; // Use Next.js Link
 import { useRouter, usePathname } from "next/navigation"; // Use Next.js Router and Pathname
 import SecondaryButton from "../common/SecondaryButton";
 import Button from "../common/Button";
-import { heart, logo } from "../../../utils/public-imports";
 import { isActive } from "../../../utils/is-route-active";
 
 const NavBar = ({ red }: { red?: boolean }) => {
@@ -58,7 +57,7 @@ const NavBar = ({ red }: { red?: boolean }) => {
           {/* Logo */}
           <Link href="/">
             <img
-              src={logo}
+              src="/logo.svg"
               alt="Logo"
               className="w-[70px] h-[70px] object-contain"
             />
@@ -95,7 +94,7 @@ const NavBar = ({ red }: { red?: boolean }) => {
                   handleNavigation("/donate"); // Use Next.js router.push
                 }}
                 text="Donate"
-                logo={heart}
+                logo="/heart.svg"
               />
             </div>
             {/* <select
@@ -124,7 +123,7 @@ const NavBar = ({ red }: { red?: boolean }) => {
       >
         <Link href="/">
           <img
-            src={logo}
+            src="/logo.svg"
             alt="Logo"
             className="w-[70px] h-[60px] py-1 object-contain"
           />

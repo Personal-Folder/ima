@@ -1,6 +1,5 @@
 "use client";
 
-import { docLog } from "../../../utils/public-imports";
 import Button from "../common/Button";
 import SecondaryButton from "../common/SecondaryButton";
 import NavBar from "../layout/Navbar";
@@ -70,7 +69,7 @@ const Header = ({
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-2 mt-3 justify-center">
           <SecondaryButton onClick={() => {}} text="Discover our Work" />
-          <Button onClick={() => {}} text="Support Our Cause" logo={docLog} />
+          <Button onClick={() => {}} text="Support Our Cause" logo="/doclog.svg" />
         </div>
 
         {/* Description */}
