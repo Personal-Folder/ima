@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div>
       <Header
-        img={"/backImage.svg"}
+        img="/backimage.svg"
         title="Islamic Medical Association"
         description="Tel: 07 735 734"
         logo="/logo.svg"
