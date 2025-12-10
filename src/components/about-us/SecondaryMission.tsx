@@ -12,7 +12,7 @@ interface SecMissionProps {
   rightLogoUrl: string; // Logo for the Right button
 }
 
-const SecMission = ({
+const SecondaryMission = ({
   enableButton = true,
   leftImg,
   leftLogo,
@@ -22,11 +22,13 @@ const SecMission = ({
   rightLogoUrl,
 }: SecMissionProps) => {
   return (
-    <div className="flex w-full min-h-screen justify-center items-center mb-1 md:mb-4">
+    <div className="flex w-full my-8 justify-center items-center mb-16 md:mb-4">
       {/* 2/3 width container */}
-      <div className="flex w-2/3 gap-8 flex-col md:flex-row">
-        {/* Right Section (Now on the Left) */}
-        <div className="w-full mr-6 md:w-1/2">
+      <div className="flex w-11/12 max-w-full md:w-2/3 gap-8 flex-col md:flex-row">
+        {/* Left Section */}
+
+        {/* Right Section */}
+        <div className="w-full md:w-1/2">
           <RightSection
             title={rightTitle}
             text={rightText}
@@ -37,14 +39,12 @@ const SecMission = ({
             shadow={true}
           />
         </div>
-
-        {/* Left Section (Now on the Right) */}
-        <div className="w-full md:w-1/2">
-          <LeftSection img={leftImg} logo={leftLogo} reverse={true} />
+        <div className="w-full mr-6 md:w-1/2">
+          <LeftSection img={leftImg} logo={leftLogo} />
         </div>
       </div>
     </div>
   );
 };
 
-export default SecMission;
+export default SecondaryMission;

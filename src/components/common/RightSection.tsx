@@ -43,7 +43,7 @@ const RightSection = ({
       <p className="text-2xl md:text-3xl lg:text-6xl font-semibold text-black mb-4">
         {title}
       </p>
-      <p className="text-base md:text-lg font-medium mt-6 mb-5 text-black">
+      <p className="text-base md:text-lg font-medium mt-6 mb-5 text-black text-justify">
         {text}
       </p>
       {button && (

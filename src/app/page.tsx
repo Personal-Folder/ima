@@ -6,7 +6,7 @@ import WhoWeAre from "@/components/about-us/WhoWeAre";
 import Mission from "@/components/about-us/Mission";
 import NewsGrid from "@/components/news/NewsGrid";
 import HomeGalleryGrid from "@/components/gallery/HomeGalleryGrid";
-import SecMission from "@/components/about-us/SecondaryMission";
+import SecondaryMission from "@/components/about-us/SecondaryMission";
 
 export default function Home() {
   const messages = [
@@ -74,7 +74,7 @@ export default function Home() {
         rightLogoUrl="knowUs.svg"
       />
       <NewsGrid newsData={newsData} />
-      <SecMission
+      <SecondaryMission
         leftImg="home_last.png"
         leftLogo="heart.svg"
         enableButton={true}
