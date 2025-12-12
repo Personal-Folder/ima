@@ -5,50 +5,42 @@ import Button from "../common/Button";
 import SecondaryButton from "../common/SecondaryButton";
 
 const DiscoverBox = ({
-  logo,
-  number,
-  message,
-  dashboard = false,
-  onEdit,
-  onDelete,
-}: DiscoverBoxProps) => {
+  data,
+}: {
+  data: {
+    id: number;
+    icon: string;
+    value: string;
+    title: string;
+    colors: {
+      border: string;
+      iconBg: string;
+      iconColor: string;
+      numberColor: string;
+    };
+  };
+}) => {
   return (
-    <div className="bg-white shadow-lg overflow-hidden rounded-lg flex flex-col items-center justify-between p-4">
-      {/* Logo Section */}
-      <div className="w-[100px] h-[100px] bg-[#FFF3F3] rounded-full flex items-center justify-center">
-        {logo ? (
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-20 h-20 object-contain rounded-full"
-          />
-        ) : (
-          <div className="w-[90px] h-[90px] bg-gray-300 rounded-full flex items-center justify-center text-white font-bold text-xl">
-            No Logo
+    <div key={data.id} className="group cursor-pointer">
+      <div
+        className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 ${data.colors.border}`}
+      >
+        <div className="flex items-center gap-4">
+          <div
+            className={`${data.colors.iconBg} flex items-center justify-center size-16  p-4 rounded-xl shrink-0`}
+          >
+            <i className={`${data.icon}  text-2xl ${data.colors.iconColor}`} />
           </div>
-        )}
-      </div>
-      <div className="mt-2 text-black text-[76px] font-semibold pb-0 rounded-full">
-        {number}
-      </div>
-      <div className="mt-1 text-center text-[24px] text-black mb-14 pt-0">
-        {message}
-      </div>
-      {dashboard && (
-        <div className="flex gap-1 mt-4 flex-wrap justify-end space-x-2 px-2 pb-2">
-          <Button
-            onClick={onEdit || (() => {})}
-            text="Edit"
-            rounded={true}
-            shadow={true}
-          />
-          <SecondaryButton
-            onClick={onDelete || (() => {})}
-            text="Delete"
-            red={true}
-          />
+          <div className="min-w-0">
+            <p className="text-sm font-medium text-gray-600 truncate">
+              {data.title}
+            </p>
+            <p className={`text-3xl font-bold ${data.colors.numberColor}`}>
+              {data.value}
+            </p>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

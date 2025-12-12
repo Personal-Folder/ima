@@ -2,7 +2,7 @@
 
 import LeftSection from "../common/LeftSection";
 import RightSection from "../common/RightSection";
-interface SecMissionProps {
+interface SecondarySectionProps {
   enableButton?: boolean;
   leftImg: string; // Image for the Left component
   leftLogo: string; // Logo for the Left component
@@ -12,7 +12,7 @@ interface SecMissionProps {
   rightLogoUrl: string; // Logo for the Right button
 }
 
-const SecondaryMission = ({
+const SecondarySection = ({
   enableButton = true,
   leftImg,
   leftLogo,
@@ -20,7 +20,7 @@ const SecondaryMission = ({
   rightText,
   rightButtonText,
   rightLogoUrl,
-}: SecMissionProps) => {
+}: SecondarySectionProps) => {
   return (
     <div className="flex w-full my-8 justify-center items-center mb-16 md:mb-4">
       {/* 2/3 width container */}
@@ -47,4 +47,4 @@ const SecondaryMission = ({
   );
 };
 
-export default SecondaryMission;
+export default SecondarySection;

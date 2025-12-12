@@ -1,22 +1,43 @@
 "use client";
+import { useEffect, useRef } from "react";
+import { Marquee } from "../ui/marquee";
 
-interface AlertMessagesProps {
-  messages: string[];
-}
+const AlertMessages = ({ messages }: { messages: string[] }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-const AlertMessages = ({ messages }: AlertMessagesProps) => {
-  const extendedMessages = [...messages, ...messages, ...messages, ...messages];
+  useEffect(() => {
+    const container = containerRef.current;
+    const content = contentRef.current;
+
+    if (!container || !content || messages.length === 0) return;
+
+    const contentWidth = content.offsetWidth;
+    const containerWidth = container.offsetWidth;
+
+    // Duration based on content width (approximately 100px per second)
+    const duration = (contentWidth / 100) * 1000;
+
+    content.style.animation = `marquee ${duration}ms linear infinite`;
+  }, [messages]);
 
   return (
-    <div className="bg-red-600 text-white w-full h-[67px] flex items-center overflow-hidden">
-      <div className="flex  animate-marquee whitespace-nowrap">
-        {extendedMessages.map((message, index) => (
-          <div key={index} className="flex items-center mx-6">
-            <div>{message}</div>
-            <img src="/logo.svg" alt="Logo" className="size-[34px] mx-4" />
+    <div className="relative w-full bg-red-600 h-16 flex items-center overflow-hidden">
+      <Marquee pauseOnHover>
+        {messages.map((message, index) => (
+          <div
+            key={`${index}`}
+            className="flex items-center shrink-0 cursor-default"
+          >
+            <span className="text-white font-medium">{message}</span>
+            <img
+              src="/logo.svg"
+              alt="Logo"
+              className="size-8 mx-3 bg-white rounded-full flex items-center justify-center shrink-0"
+            />
           </div>
         ))}
-      </div>
+      </Marquee>
     </div>
   );
 };

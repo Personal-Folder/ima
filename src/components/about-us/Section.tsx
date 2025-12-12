@@ -3,7 +3,7 @@
 import LeftSection from "../common/LeftSection";
 import RightSection from "../common/RightSection";
 
-interface MissionProps {
+interface SectionProps {
   enableButton?: boolean; // Whether to enable the button in the Right section
   leftImg: string; // Image for the Left component
   leftLogo: string; // Logo for the Left component
@@ -13,7 +13,7 @@ interface MissionProps {
   rightLogoUrl: string; // Logo for the Right button
 }
 
-const Mission = ({
+const Section = ({
   enableButton = true,
   leftImg,
   leftLogo,
@@ -21,7 +21,7 @@ const Mission = ({
   rightText,
   rightButtonText,
   rightLogoUrl,
-}: MissionProps) => {
+}: SectionProps) => {
   return (
     <div className="flex w-full my-8 justify-center items-center mb-16 md:mb-4">
       {/* 2/3 width container */}
@@ -48,4 +48,4 @@ const Mission = ({
   );
 };
 
-export default Mission;
+export default Section;

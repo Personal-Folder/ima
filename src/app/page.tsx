@@ -3,10 +3,10 @@ import Header from "@/components/home/Header";
 import AlertMessages from "@/components/home/AlertMessages";
 import DiscoverGrid from "@/components/discover/DiscoverGrid";
 import WhoWeAre from "@/components/about-us/WhoWeAre";
-import Mission from "@/components/about-us/Mission";
+import Section from "@/components/about-us/Section";
 import NewsGrid from "@/components/news/NewsGrid";
 import HomeGalleryGrid from "@/components/gallery/HomeGalleryGrid";
-import SecondaryMission from "@/components/about-us/SecondaryMission";
+import SecondarySection from "@/components/about-us/SecondarySection";
 
 export default function Home() {
   const messages = [
@@ -64,7 +64,7 @@ export default function Home() {
         text="Flyesim is a cutting-edge technology company dedicated to enhancing your travel experience through our state-of-the-art eSIM application. Our team consists of tech enthusiasts, travel aficionados, and customer service experts, all committed to providing you with the best connectivity solutions no matter where your adventures take you."
         button={true}
       />
-      <Mission
+      <Section
         enableButton={true}
         leftImg="/mission.svg"
         leftLogo="/play_button.svg"
@@ -73,8 +73,10 @@ export default function Home() {
         rightButtonText="Get to Know Us"
         rightLogoUrl="knowUs.svg"
       />
-      <NewsGrid newsData={newsData} />
-      <SecondaryMission
+      <div className="bg-linear-to-br from-slate-50 to-slate-100 ">
+        <NewsGrid newsData={newsData} />
+      </div>
+      <SecondarySection
         leftImg="home_last.png"
         leftLogo="heart.svg"
         enableButton={true}

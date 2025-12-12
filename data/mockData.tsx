@@ -43,22 +43,41 @@ export const mockImages: ImageCard[] = [
 export const discoverData = [
   {
     id: 1,
-    logo: "/ambulance.svg",
-    number: "261",
-    message: "Ambulance Missions",
+    title: "Ambulance Missions",
+    value: "261",
+    icon: "fa-solid fa-truck-medical",
+    colors: {
+      border: "border-red-600 hover:border-red-700",
+      iconBg: "bg-red-100",
+      iconColor: "text-red-600",
+      numberColor: "text-red-600",
+    },
   },
-  { id: 2, logo: "/clinic.svg", number: "48", message: "Lending Supplies" },
+  {
+    id: 2,
+    title: "Lending Supplies",
+    value: "48",
+    icon: "fa-solid fa-suitcase-medical",
+    colors: {
+      border: "border-blue-600 hover:border-blue-700",
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600",
+      numberColor: "text-blue-600",
+    },
+  },
   {
     id: 3,
-    logo: "/paramedic.svg",
-    number: "68",
-    message: "Training and Development",
+    title: "Training and Development",
+    value: "68",
+    icon: "fa-solid fa-user-doctor",
+    colors: {
+      border: "border-red-600 hover:border-red-700",
+      iconBg: "bg-red-100",
+      iconColor: "text-red-600",
+      numberColor: "text-red-600",
+    },
   },
-  { id: 4, logo: "/discover.svg", number: "4", message: "Message 4" },
-  { id: 5, logo: "/logo2.svg", number: "5", message: "Message 5" },
-  { id: 6, logo: "/logo3.svg", number: "6", message: "Message 6" },
 ];
-
 
 export const englishNewsData = [
   {
@@ -114,10 +133,5 @@ export const arabicNewsData = [
     image: "/news5.jpg",
     title: "بيانات جديدة",
     description: "كيفية فهم البيانات",
-  },
-  {
-    image: "/news6.jpg",
-    title: "مراجعة الأداء",
-    description: "مؤشرات النجاح والخطة القادمة",
   },
 ];
