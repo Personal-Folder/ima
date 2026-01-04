@@ -78,7 +78,7 @@ const NewsCard = ({ news }: { news: News }) => {
 
               {/* Indicators */}
               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-                {imageList.map((_, index: number) => (
+                {imageList.map((_: any, index: number) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
@@ -171,7 +171,7 @@ const NewsCard = ({ news }: { news: News }) => {
                     </button>
 
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {imageList.map((_, index: number) => (
+                      {imageList.map((_: any, index: number) => (
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
