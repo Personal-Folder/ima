@@ -4,8 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-const Footer = () => {
+const Footer = ({
+  logo,
+  description,
+}: {
+  logo: string;
+  description: string;
+}) => {
   const pathname = usePathname();
+
   return (
     <footer className="flex flex-col items-center w-full bg-secondary border-t-2 border-secondary">
       {/* Footer Content */}
@@ -65,7 +72,7 @@ const Footer = () => {
         {/* Center Column - Logo */}
         <div className="flex justify-center w-full lg:w-1/3">
           <Image
-            src="/logo.svg"
+            src={logo}
             alt="Logo"
             width={100}
             height={100}
@@ -75,11 +82,7 @@ const Footer = () => {
 
         {/* Right Column - Arabic Text */}
         <div className="text-center lg:text-right text-[#E5C6C6] font-medium lg:w-1/3 text-sm lg:text-base">
-          <p>
-            الجمعية الطبية الإسلامية: منظمة خيرية تسعى لتقديم الخدمات الطبية
-            والإنسانية بجودة عالية وفقاً للقيم الإسلامية، بهدف دعم المجتمعات
-            المحتاجة وتعزيز الصحة والرفاه.
-          </p>
+          <p>{description}</p>
         </div>
       </div>
 

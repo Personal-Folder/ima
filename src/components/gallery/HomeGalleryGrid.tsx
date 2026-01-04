@@ -3,15 +3,16 @@
 import React, { useState } from "react";
 import Button from "../common/Button";
 import { useRouter } from "next/navigation";
-import { useNavigate } from "react-router-dom";
 
 interface ImageProps {
-  images: string[];
+  data: any[];
   remainingImages: number;
 }
 
-const HomeGalleryGrid: React.FC<ImageProps> = ({ images, remainingImages }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+const HomeGalleryGrid: React.FC<ImageProps> = ({
+  data,
+  remainingImages,
+}) => {
   const navigate = useRouter();
 
   return (
@@ -25,7 +26,7 @@ const HomeGalleryGrid: React.FC<ImageProps> = ({ images, remainingImages }) => {
             <div className="md:col-span-2 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <div className="aspect-video md:aspect-square">
                 <img
-                  src={images[0]}
+                  src={data[0].images[0]}
                   alt="Main Gallery Image"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
@@ -35,14 +36,10 @@ const HomeGalleryGrid: React.FC<ImageProps> = ({ images, remainingImages }) => {
             {/* Right Column - Stacked Images */}
             <div className="flex flex-col gap-4">
               {/* Top Right Image */}
-              <div
-                className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex-1"
-                onMouseEnter={() => setHoveredIndex(1)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
+              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex-1">
                 <div className="aspect-square">
                   <img
-                    src={images[1]}
+                    src={data[0].images[0]}
                     alt="Gallery Image 2"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
                   />
@@ -52,13 +49,11 @@ const HomeGalleryGrid: React.FC<ImageProps> = ({ images, remainingImages }) => {
               {/* Bottom Right Image with Overlay */}
               <div
                 className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 relative group cursor-pointer flex-1"
-                onMouseEnter={() => setHoveredIndex(2)}
-                onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => navigate.push("/closer-look")}
               >
                 <div className="aspect-square">
                   <img
-                    src={images[2]}
+                    src={data[0].images[0]}
                     alt="Gallery Image 3"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />

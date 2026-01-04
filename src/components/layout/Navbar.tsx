@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import SecondaryButton from "../common/SecondaryButton";
 import Button from "../common/Button";
-import { isActive } from "../../../utils/is-route-active";
+import { isActive } from "../../utils/is-route-active";
 
-const NavBar = ({ red }: { red?: boolean }) => {
+const NavBar = ({ logo, red }: { logo: string; red?: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [bgColor, setBgColor] = useState("transparent");
@@ -85,30 +85,15 @@ const NavBar = ({ red }: { red?: boolean }) => {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav
-        className="hidden lg:flex items-center fixed top-0 left-1/2 transform -translate-x-1/2 z-50 mt-5 h-[90px] rounded-[30px] transition-all duration-300"
-        style={{
-          background: scrolled
-            ? bgColor === "light"
-              ? "rgba(255, 255, 255, 0.95)"
-              : "rgba(20, 20, 30, 0.8)"
-            : "rgba(255, 255, 255, 0.3)",
-          backdropFilter: "blur(20px)",
-          boxShadow: scrolled
-            ? "0px 8px 20px rgba(0, 0, 0, 0.12)"
-            : "0px 4px 8px rgba(0, 0, 0, 0.08)",
-          width: "calc(100% - 40px)",
-          maxWidth: "none",
-        }}
-      >
+      <nav className="w-full mt-5 rounded-[20px] bg-white/15 shadow-2xl backdrop-blur-[10px] hidden lg:flex items-center fixed top-0 left-1/2 transform -translate-x-1/2 z-50 h-[90px] transition-all duration-300">
         <div className="flex px-4 items-center justify-between w-full h-full">
           {/* Logo */}
           <Link
             href="/"
-            className="flex-shrink-0 hover:scale-105 transition-transform"
+            className="shrink-0 hover:scale-105 transition-transform"
           >
             <img
-              src="/logo.svg"
+              src={logo}
               alt="Logo"
               className="w-[70px] h-[70px] object-contain"
             />
@@ -140,7 +125,7 @@ const NavBar = ({ red }: { red?: boolean }) => {
                   handleNavigation("/donate");
                 }}
                 text="Donate"
-                logo="/heart.svg"
+                logo="fa-solid fa-heart"
               />
             </div>
           </div>
@@ -164,7 +149,7 @@ const NavBar = ({ red }: { red?: boolean }) => {
       >
         <Link href="/">
           <img
-            src="/logo.svg"
+            src={logo}
             alt="Logo"
             className="w-[70px] h-[60px] py-1 object-contain"
           />
@@ -221,7 +206,7 @@ const NavBar = ({ red }: { red?: boolean }) => {
                 handleNavigation("/donate");
               }}
               text="Donate"
-              logo="/heart.svg"
+              logo="fa-solid fa-heart"
             />
           </div>
         </div>

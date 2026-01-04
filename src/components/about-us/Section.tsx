@@ -1,26 +1,26 @@
 "use client";
 
-import LeftSection from "../common/LeftSection";
-import RightSection from "../common/RightSection";
+import ImageSection from "../common/ImageSection";
+import TextSection from "../common/TextSection";
 
 interface SectionProps {
-  enableButton?: boolean; // Whether to enable the button in the Right section
-  leftImg: string; // Image for the Left component
-  leftLogo: string; // Logo for the Left component
-  rightTitle: string; // Title for the Right component
-  rightText: string; // Text for the Right component
-  rightButtonText: string; // Button text for the Right component
-  rightLogoUrl: string; // Logo for the Right button
+  image: string; // Image for the Left component
+  logo?: string; // Logo for the Left component
+  title: string; // Title for the Right component
+  text: string; // Text for the Right component
+  button_text: string; // Button text for the Right component
+  button_logo: string; // Logo for the Right button
+  button_path: string; // Path for the Right button
 }
 
 const Section = ({
-  enableButton = true,
-  leftImg,
-  leftLogo,
-  rightTitle,
-  rightText,
-  rightButtonText,
-  rightLogoUrl,
+  image,
+  logo,
+  title,
+  text,
+  button_text,
+  button_logo,
+  button_path,
 }: SectionProps) => {
   return (
     <div className="flex w-full my-8 justify-center items-center mb-16 md:mb-4">
@@ -28,19 +28,17 @@ const Section = ({
       <div className="flex w-11/12 max-w-full md:w-2/3 gap-8 flex-col md:flex-row">
         {/* Left Section */}
         <div className="w-full mr-6 md:w-1/2">
-          <LeftSection img={leftImg} logo={leftLogo} />
+          <ImageSection image={image} logo={logo} />
         </div>
 
         {/* Right Section */}
         <div className="w-full md:w-1/2">
-          <RightSection
-            title={rightTitle}
-            text={rightText}
-            button={enableButton} // Dynamically enable/disable the button
-            button_text={rightButtonText}
-            logo_url={rightLogoUrl}
-            rounded={false}
-            shadow={true}
+          <TextSection
+            title={title}
+            text={text}
+            button_text={button_text}
+            button_logo={button_logo}
+            button_path={button_path}
           />
         </div>
       </div>

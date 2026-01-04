@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import { Marquee } from "../ui/marquee";
 
-const AlertMessages = ({ messages }: { messages: string[] }) => {
+const AlertMessages = ({ messages }: { messages: any[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -29,11 +29,11 @@ const AlertMessages = ({ messages }: { messages: string[] }) => {
             key={`${index}`}
             className="flex items-center shrink-0 cursor-default"
           >
-            <span className="text-white font-medium">{message}</span>
+            <span className="text-white font-medium">{message.title}</span>
             <img
               src="/logo.svg"
               alt="Logo"
-              className="size-8 mx-3 bg-white rounded-full flex items-center justify-center shrink-0"
+              className="size-8 ms-(--gap) bg-white rounded-full flex items-center justify-center shrink-0"
             />
           </div>
         ))}
