@@ -27,7 +27,7 @@ const NewsCard = ({ news }: { news: News }) => {
   // Format date
   const formatDate = (dateString: string) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    return new Date(dateString).toLocaleDateString("en-US", options as any);
   };
 
   // Get first 150 characters of description
