@@ -9,11 +9,10 @@ interface ImageProps {
   remainingImages: number;
 }
 
-const HomeGalleryGrid: React.FC<ImageProps> = ({
-  data,
-  remainingImages,
-}) => {
+const HomeGalleryGrid: React.FC<ImageProps> = ({ data, remainingImages }) => {
   const navigate = useRouter();
+
+  console.log(data[0]);
 
   return (
     <div className="flex flex-col items-center justify-center w-full bg-linear-to-br from-slate-50 to-slate-100 px-4 py-8">
@@ -39,7 +38,7 @@ const HomeGalleryGrid: React.FC<ImageProps> = ({
               <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex-1">
                 <div className="aspect-square">
                   <img
-                    src={data[0].images[0]}
+                    src={data[1].images[0]}
                     alt="Gallery Image 2"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
                   />
@@ -53,7 +52,9 @@ const HomeGalleryGrid: React.FC<ImageProps> = ({
               >
                 <div className="aspect-square">
                   <img
-                    src={data[0].images[0]}
+                    src={
+                      data.length >= 3 ? data[2].images[0] : data[1].images[0]
+                    }
                     alt="Gallery Image 3"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -72,7 +73,7 @@ const HomeGalleryGrid: React.FC<ImageProps> = ({
                       className="px-5 py-2 bg-white text-slate-900 text-sm font-semibold rounded-lg hover:bg-slate-100 transition-colors duration-200"
                       onClick={(e) => {
                         e.stopPropagation();
-                        navigate.push("/closer-look");
+                        navigate.push("/gallery");
                       }}
                     >
                       See All
@@ -88,7 +89,7 @@ const HomeGalleryGrid: React.FC<ImageProps> = ({
         <div className="flex justify-center pt-4">
           <Button
             onClick={() => {
-              navigate.push("/closer-look");
+              navigate.push("/gallery");
             }}
             text="Take a closer look"
             logo={
