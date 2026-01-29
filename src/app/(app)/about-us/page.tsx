@@ -1,7 +1,6 @@
 import SecondarySection from "@/components/about-us/SecondarySection";
 import Section from "@/components/about-us/Section";
 import { createClient } from "@/lib/supabase/server";
-import { getBaseUrl } from "@/lib/utils";
 import { cookies } from "next/headers";
 
 
