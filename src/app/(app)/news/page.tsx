@@ -1,11 +1,14 @@
 export const revalidate = 0;
 
 import NewsGrid from "@/components/news/NewsGrid";
+import { createClient } from "@/lib/supabase/server";
 import { getBaseUrl } from "@/lib/utils";
+import { cookies } from "next/headers";
 
 async function News() {
-  const response = await fetch(`${getBaseUrl()}/api/news`);
-  const newsData = await response.json();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+  const { data, error } = await supabase.from("news").select("*");
 
   return (
     <div className="flex flex-col items-center">
@@ -44,7 +47,7 @@ async function News() {
           <Button text="Search" onClick={handleSearch} />
         </div>
       </div> */}
-      <NewsGrid newsData={newsData} />
+      <NewsGrid newsData={data!} />
     </div>
   );
 }

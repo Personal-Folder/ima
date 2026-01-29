@@ -1,16 +1,22 @@
 import SecondarySection from "@/components/about-us/SecondarySection";
 import Section from "@/components/about-us/Section";
+import { createClient } from "@/lib/supabase/server";
 import { getBaseUrl } from "@/lib/utils";
+import { cookies } from "next/headers";
+
+
 
 async function AboutUs() {
-  const response = await fetch(
-    `${getBaseUrl()}/api/about-us`
-  );
-  const data = await response.json();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+  const { data } = await supabase
+    .from("sections")
+    .select("*")
+    .or("key.ilike.%about%,key.ilike.%all%");
+
   return (
     <div>
-      {data
-        .map((section: any) =>
+      {data?.map((section: any) =>
           section["reverse"] ? (
             <SecondarySection
               key={section.id}

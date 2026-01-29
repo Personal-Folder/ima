@@ -4,12 +4,29 @@ import Section from "@/components/about-us/Section";
 import NewsGrid from "@/components/news/NewsGrid";
 import SecondarySection from "@/components/about-us/SecondarySection";
 import HomeGalleryGrid from "@/components/gallery/HomeGalleryGrid";
-import { getBaseUrl } from "@/lib/utils";
+import { cookies } from "next/headers";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function Home() {
-  const response = await fetch(`${getBaseUrl()}/api/home`);
-  const { news, sections, featuredNews, insights, gallery } =
-    await response.json();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+  const { data: news, error } = await supabase
+    .from("news")
+    .select("*")
+    .limit(3);
+  let { data: sections } = await supabase
+    .from("sections")
+    .select("*")
+    .or("key.ilike.%all%,key.ilike.%home%");
+  let { data: featuredNews } = await supabase
+    .from("news")
+    .select("title")
+    .eq("featured", true);
+  let { data: insights } = await supabase
+    .from("insights")
+    .select("*")
+    .in("key", ["amb_mission", "lending_supplies", "training_and_development"]);
+  let { data: gallery } = await supabase.from("gallery").select("*");
 
   return (
     <div>
@@ -44,7 +61,7 @@ export default async function Home() {
               button_logo={section.button_logo}
               button_path={section.button_path}
             />
-          )
+          ),
         )}
 
       <div className="bg-linear-to-br from-slate-50 to-slate-100">
@@ -76,11 +93,11 @@ export default async function Home() {
               button_logo={section.button_logo}
               button_path={section.button_path}
             />
-          )
+          ),
         )}
 
-      {gallery.length > 0 && (
-        <HomeGalleryGrid data={gallery} remainingImages={gallery.length - 3} />
+      {gallery!.length > 0 && (
+        <HomeGalleryGrid data={gallery!} remainingImages={gallery!.length - 3} />
       )}
     </div>
   );
