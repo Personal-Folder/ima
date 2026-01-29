@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import NewsGrid from "@/components/news/NewsGrid";
 
 async function News() {
