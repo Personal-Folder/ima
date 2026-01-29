@@ -7,6 +7,9 @@ import HomeGalleryGrid from "@/components/gallery/HomeGalleryGrid";
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function Home() {
   const cookieStore = await cookies();
   const supabase = createClient(cookieStore);

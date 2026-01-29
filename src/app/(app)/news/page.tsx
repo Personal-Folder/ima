@@ -1,9 +1,12 @@
-export const revalidate = 0;
 
 import NewsGrid from "@/components/news/NewsGrid";
 import { createClient } from "@/lib/supabase/server";
 import { getBaseUrl } from "@/lib/utils";
 import { cookies } from "next/headers";
+
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 async function News() {
   const cookieStore = await cookies();

@@ -3,7 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/home/Header";
-import { getBaseUrl } from "@/lib/utils";
+import { cookies } from "next/headers";
+import { createClient } from "@/lib/supabase/server";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +29,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const response = await fetch(
-    `${getBaseUrl()}/api/setting`
-  );
-  const setting = await response.json();
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+
+  const { data: setting } = await supabase.from("setting").select("*");
 
   return (
     <html lang="en">
