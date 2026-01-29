@@ -1,9 +1,10 @@
 import SecondarySection from "@/components/about-us/SecondarySection";
 import Section from "@/components/about-us/Section";
+import { getBaseUrl } from "@/lib/utils";
 
 async function AboutUs() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/about-us`
+    `${getBaseUrl()}/api/about-us`
   );
   const data = await response.json();
   return (

@@ -4,9 +4,10 @@ import Section from "@/components/about-us/Section";
 import NewsGrid from "@/components/news/NewsGrid";
 import SecondarySection from "@/components/about-us/SecondarySection";
 import HomeGalleryGrid from "@/components/gallery/HomeGalleryGrid";
+import { getBaseUrl } from "@/lib/utils";
 
 export default async function Home() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/home`);
+  const response = await fetch(`${getBaseUrl()}/api/home`);
   const { news, sections, featuredNews, insights, gallery } =
     await response.json();
 

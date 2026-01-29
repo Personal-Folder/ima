@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getBaseUrl } from "@/lib/utils";
 
 export default function GalleryForm() {
   const [formData, setFormData] = useState({
@@ -57,7 +58,7 @@ export default function GalleryForm() {
         dataToSend.append("images", file);
       });
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gallery`, {
+      const response = await fetch(`${getBaseUrl()}/api/gallery`, {
         method: "POST",
         body: dataToSend,
       });

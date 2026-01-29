@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
-import { cookies } from "next/headers";
-import { createClient } from "@/lib/supabase/server";
 import Header from "@/components/home/Header";
+import { getBaseUrl } from "@/lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +26,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/setting`
+    `${getBaseUrl()}/api/setting`
   );
   const setting = await response.json();
 

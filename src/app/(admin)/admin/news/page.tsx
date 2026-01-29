@@ -1,8 +1,9 @@
 import NewsForm from "@/components/news/NewsForm";
+import { getBaseUrl } from "@/lib/utils";
 
 export default async function AdminNews() {
   // Fetch categories server-side
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news-categories`);
+  const response = await fetch(`${getBaseUrl()}/api/news-categories`);
   const categories = await response.json();
 
 

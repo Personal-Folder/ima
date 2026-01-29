@@ -1,9 +1,10 @@
 import Charts from "@/components/discover/Charts";
 import DiscoverGrid from "@/components/discover/DiscoverGrid";
+import { getBaseUrl } from "@/lib/utils";
 
 async function Insights() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/insights`
+    `${getBaseUrl()}/api/insights`
   );
   const { insights, charts } = await response.json();
 

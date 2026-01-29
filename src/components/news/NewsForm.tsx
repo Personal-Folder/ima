@@ -2,6 +2,7 @@
 
 import { publishNews, uploadNewsImage } from "@/helpers/newsHelper";
 import { useState } from "react";
+import { getBaseUrl } from "@/lib/utils";
 
 interface NewsFormProps {
   categories: any[];
@@ -68,7 +69,7 @@ export default function NewsForm({ categories = [] }: NewsFormProps) {
         dataToSend.append("images", file);
       });
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news`, {
+      const response = await fetch(`${getBaseUrl()}/api/news`, {
         method: "POST",
         body: dataToSend, // No Content-Type header needed; browser sets it for FormData
       });

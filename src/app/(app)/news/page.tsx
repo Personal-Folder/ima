@@ -1,9 +1,10 @@
 export const revalidate = 0;
 
 import NewsGrid from "@/components/news/NewsGrid";
+import { getBaseUrl } from "@/lib/utils";
 
 async function News() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news`);
+  const response = await fetch(`${getBaseUrl()}/api/news`);
   const newsData = await response.json();
 
   return (
